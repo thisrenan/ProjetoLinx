@@ -1,0 +1,19 @@
+CREATE TABLE cidade
+(
+	cidade character varying(255) COLLATE pg_catalog."default" NOT NULL,
+	"idCidade" serial NOT NULL,
+	uf character varying(2) COLLATE pg_catalog."default" NOT NULL,
+	latitude double precision NOT NULL,    
+	longitude double precision NOT NULL,
+	ibge integer NOT NULL,
+	regiao character varying(100) not null,    
+    CONSTRAINT cidade_pk PRIMARY KEY ("idCidade"),
+    CONSTRAINT unique_ibge UNIQUE (ibge)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE cidade
+    OWNER to postgres;
